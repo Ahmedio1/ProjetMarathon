@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
-use App\Models\Episode;
 use App\Models\Serie;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class BaseController extends Controller
 {
@@ -23,31 +18,23 @@ class BaseController extends Controller
         //
     }
     public function showDate(){
-        $data = Serie::orderBy('premiere','desc')->take(5)->get();
-        return view('accueil.echantillon',['date' =>$data]);
+        $date=[];
+        $data = DB::table('series')->orderBy('premiere','desc')->get();
+        for($i=0;$i<5;$i++){
+            $date[$i]=$data[$i];
+        }
+        return view('accueil.echantillon',['date' =>$date]);
 
     }
     public function filtre(Request $request) {
         $cat = $request->get("cat", '');
         if (empty($cat)) {
-            $series = Serie::all();
+            $series = DB::table('series')->get();
         } else {
-            $series = Serie::orderBy($cat)->get();
+            $series = DB::table('series')->groupBy($cat)->get();
 
         }
         return view('welcome', ['series' => $series]);
-        return new RedirectResponse('/');
-    }
-
-    public function trierGenre(Request $request){
-        $cat = $request->get("cat", '');
-        if (empty($cat)) {
-            $series = Serie::all();
-        } else {
-            $series = Serie::where("genre", "=" ,$cat,"or langue","=",$cat)->get();
-        }
-        return view('welcome', ['series' => $series]);
-        return new RedirectResponse('/');
     }
 
     /**
@@ -68,13 +55,7 @@ class BaseController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'content' => 'required',
-
-        ]);
-        $comments = new Comment();
-        $comments->content = $request->message;
-        $comments->save();
+        //
     }
 
     /**
@@ -132,34 +113,4 @@ class BaseController extends Controller
         $serie = Serie::find($id);
         return view('sommaireSerie', ['serie' => $serie]);
     }
-    public function complete($id){
-        //
-    }
-    public function liste($id){
-        $idUser = Auth::id();
-        $user = User::find($idUser);
-        $episodes = DB::table('episodes')->where('serie_id', $id)->get();
-        return view('listeEpisodes', ['episodes'=>$episodes,'user'=>$user]);
-    }
-    public function valide($id){
-//
-    }
-    public function dejaVu($eId,$date,$uId){
-        $seen = DB::table('seen')->where('episode_id',$eId)->exists();
-        $episode = Episode::find($eId);
-        if($seen){
-            return redirect("/listeEpisodes/".$episode->serie_id);}
-        else{
-        DB::table('seen')->insert(['user_id' => $uId, 'episode_id' => $eId, 'date_seen' => $date]);
-        return redirect("/listeEpisodes/".$episode->serie_id);}
-    }
-
-    public function profil($id){
-        $profil = DB::table('users')->where('id', $id)->first();
-        $series = DB::table('seen')->where('episode_id');
-        if($profil->a)
-        return view('/profil', ['profil'=>$profil]);
-
-    }
-
 }
