@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,9 +24,11 @@ class CommentaireController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('commentaire.commentaire');
+        $serie=Serie::find($id);
+       return view('commentaire.commentaire', ['serie'=>$serie]);
+
     }
 
     /**
@@ -34,7 +37,7 @@ class CommentaireController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $this->validate($request, [
             'message' => 'required',
@@ -45,10 +48,11 @@ class CommentaireController extends Controller
         $comments->note = $request->note;
         $comments->validated =0;
         $comments->user_id =Auth::id();
-        $comments->serie_id = 216;
-       Comment::insert(['content' => $comments->content, 'note' => $comments->note,'validated' => 0,'user_id'=>$comments->user_id,'serie_id'=>$comments->serie_id]);
+        $comments->serie_id = $id;
+        Comment::insert(['content' => $comments->content, 'note' => $comments->note,'validated' => 0,'user_id'=>$comments->user_id,'serie_id'=>$comments->serie_id]);
 
-        return view("welcome");
+
+        return redirect("sommaire/".$id);
     }
 
     /**
@@ -70,7 +74,7 @@ class CommentaireController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -82,7 +86,7 @@ class CommentaireController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

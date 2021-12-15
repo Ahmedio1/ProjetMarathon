@@ -22,6 +22,9 @@ Route::get('/sommaire/{id}', [BaseController::class, 'sommaire'])-> name('som');
 Route::get('/echantillon',[App\Http\Controllers\BaseController::class, 'showDate'])->name('accueil.echantillon');
 Route::get('/filtre',  [App\Http\Controllers\BaseController::class, 'filtre']);
 Route::resource('commentaire', 'App\Http\Controllers\CommentaireController');
+Route::get('create/{id}', [App\Http\Controllers\CommentaireController::class,'create']);
+Route::post('create/store/{id}', [App\Http\Controllers\CommentaireController::class,'store']);
+
 Route::resource('user','App\Http\Controllers\UtilisateurController');
 
 /*
