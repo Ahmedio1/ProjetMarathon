@@ -15,6 +15,7 @@
             <li>Note : {{$serie->note}}</li>
             <li>Avis : {{$serie->avis}}</li>
             <li>Laisser : {{$serie->urlAvis}}</li>
+            <li> <a href="/listeEpisodes/{{$serie->id}}">Voir la liste des épisodes de la série</a> </li>
         </ul>
     @else
         <h3>Aucune information sur la série à afficher</h3>

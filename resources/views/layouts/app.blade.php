@@ -8,7 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('../css/style.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <header>
@@ -20,8 +21,8 @@
 <nav>
     <ul>
         @guest
-            <li><a href="{{ route('login') }}">Login</a></li>
-            <li><a href="{{ route('register') }}">Register</a></li>
+            <li class="connexion"><a href="{{ route('login') }}">Login</a></li>
+            <li class="connexion"><a href="{{ route('register') }}">Register</a></li>
         @else
             <li> Bonjour {{ Auth::user()->name }}</li>
             @if (Auth::user())

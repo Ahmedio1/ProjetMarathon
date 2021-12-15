@@ -1,1 +1,15 @@
-/* Put your style here */
+body{
+    background: url("../img/bg.jpg")lightblue;
+}
+
+.connexion{
+    font-weight: bold;
+    font-style: italic;
+    list-style: none;
+    display : inline-block;
+}
+
+.box-connection {
+    background-color: #2d3748;
+    margin: 0 auto;
+}

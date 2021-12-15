@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Serie;
 use Illuminate\Console\Scheduling\ScheduleRunCommand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class BaseController extends Controller
@@ -103,15 +104,12 @@ class BaseController extends Controller
         return view('completeSerie', ['serie' => $serie, 'nbEpisodes'=>$nbEpisodes, 'nbSaisons' => $nbSaisons]);
     }
 
-    /*
-    public function getNbSaisons($id){
-        $nbSaisons = DB::table('episodes')->where('serie_id', $id)->max('saison');
-        return $nbSaisons;
+    public function liste($id){
+        $episodes = DB::table('episodes')->where('serie_id', $id)->get();
+        return view('listeEpisodes', ['episodes'=>$episodes]);
     }
 
-    public function  getNbEpisodes($id){
-        $nbEpisodes = DB::table('episodes')->where('serie_id', $id)->count();
-        return $nbEpisodes;
+    public function dejaVu($eId,$date,$uId){
+        DB::table('seen')->insert(['user_id'=>$uId, 'episode_id'=>$eId, 'date_seen'=>$date]);
     }
-    */
 }

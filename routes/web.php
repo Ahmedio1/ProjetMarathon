@@ -18,6 +18,8 @@ use App\Http\Controllers\BaseController;
 Route::get('/', [BaseController::class, 'welcome'])->name('welcome');
 Route::get('/sommaire/{id}', [BaseController::class, 'sommaire']);
 Route::get('/complete/{id}', [BaseController::class, 'complete']);
+Route::get('/listeEpisodes/{sId}', [BaseController::class, 'liste']);
+Route::post('/listeEpisodes/{eId}/{date}/{uId}', [BaseController::class, 'dejaVu']);
 
 
 
