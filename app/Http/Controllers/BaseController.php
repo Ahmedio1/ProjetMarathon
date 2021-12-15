@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Serie;
 use Illuminate\Http\Request;
 use Resources\views;
 use Illuminate\Support\Facades\DB;
@@ -25,8 +26,27 @@ class BaseController extends Controller
         for($i=0;$i<5;$i++){
             $date[$i]=$data[$i];
         }
-        return view('welcome',['date' =>$date]);
+        return view('accueil.echantillon',['date' =>$date]);
 
+    }
+    public function filtre(Request $request) {
+        $cat = $request->get("cat", '');
+        $series = Serie::all();
+        if (empty($cat)) {
+            $series = $this->series;
+        } else {
+            foreach ($this->series as $serie) {
+                    array_multisort($series, SORT_ASC, $cat);
+                    $taches[] = $serie;
+
+            }
+        }
+        return view('welcome', ['serie' => $taches]);
+    }
+
+    public function valide($request,$idUser,$idEpisode){
+        DB:: table('seen')->insert(
+            ['user_id'=> $idUser, 'episode_id' => $idEpisode]);
     }
 
     /**

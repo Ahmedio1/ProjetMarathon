@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::any('/', [App\Http\Controllers\BaseController::class, 'showDate']);
+Route::get('/echantillon',[App\Http\Controllers\BaseController::class, 'showDate'])->name('accueil.echantillon');
+Route::get('/filtre',  [App\Http\Controllers\BaseController::class, 'filtre']);
 /*
 Route::resource('base', 'App\Http\Controllers\BaseController')->only([
     'index', 'show'
