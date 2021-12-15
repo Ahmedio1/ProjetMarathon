@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+});/*
+Route::resource('base', 'App\Http\Controllers\BaseController')->only([
+    'index', 'show'
+]);
+Route::resource('base', 'App\Http\Controllers\RegisterController')->only([
+    'create'
+]);*/
+//Route::resource('test', '\App\Http\Controllers\BaseController');
 
 //Route::post("/login", );
