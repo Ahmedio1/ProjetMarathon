@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Serie;
+use Illuminate\Console\Scheduling\ScheduleRunCommand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -94,4 +95,23 @@ class BaseController extends Controller
         $serie = Serie::find($id);
         return view('sommaireSerie', ['serie' => $serie]);
     }
+
+    public function complete($id){
+        $serie = Serie::find($id);
+        $nbEpisodes = DB::table('episodes')->where('serie_id', $id)->count();
+        $nbSaisons = DB::table('episodes')->where('serie_id', $id)->max('saison');
+        return view('completeSerie', ['serie' => $serie, 'nbEpisodes'=>$nbEpisodes, 'nbSaisons' => $nbSaisons]);
+    }
+
+    /*
+    public function getNbSaisons($id){
+        $nbSaisons = DB::table('episodes')->where('serie_id', $id)->max('saison');
+        return $nbSaisons;
+    }
+
+    public function  getNbEpisodes($id){
+        $nbEpisodes = DB::table('episodes')->where('serie_id', $id)->count();
+        return $nbEpisodes;
+    }
+    */
 }
