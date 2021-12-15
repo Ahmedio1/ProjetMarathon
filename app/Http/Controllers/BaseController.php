@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Resources\views;
+use Illuminate\Support\Facades\DB;
 
 class BaseController extends Controller
 {
@@ -16,6 +17,16 @@ class BaseController extends Controller
     public function index()
     {
         return view('welcome');
+    }
+
+    public function showDate(){
+        $date=[];
+        $data = DB::table('series')->orderBy('premiere','desc')->get();
+        for($i=0;$i<5;$i++){
+            $date[$i]=$data[$i];
+        }
+        return view('welcome',['date' =>$date]);
+
     }
 
     /**

@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});/*
+});*/
+
+Route::any('/', [App\Http\Controllers\BaseController::class, 'showDate']);
+/*
 Route::resource('base', 'App\Http\Controllers\BaseController')->only([
     'index', 'show'
 ]);
