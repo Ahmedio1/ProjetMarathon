@@ -17,6 +17,25 @@ class BaseController extends Controller
     {
         //
     }
+    public function showDate(){
+        $date=[];
+        $data = DB::table('series')->orderBy('premiere','desc')->get();
+        for($i=0;$i<5;$i++){
+            $date[$i]=$data[$i];
+        }
+        return view('accueil.echantillon',['date' =>$date]);
+
+    }
+    public function filtre(Request $request) {
+        $cat = $request->get("cat", '');
+        if (empty($cat)) {
+            $series = DB::table('series')->get();
+        } else {
+            $series = DB::table('series')->groupBy($cat)->get();
+
+        }
+        return view('welcome', ['series' => $series]);
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -5,7 +5,6 @@
     <br />
     on doit y voir les dernières séries par exemple.
     <p><a href="echantillon">Voir la liste des 5 séries les plus récentes</a></p>
-@endsection
     @if(!empty($series))
         <ul>
             <p>Voici la liste des séries disponibles</p>
