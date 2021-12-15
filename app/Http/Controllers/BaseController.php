@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Serie;
 use Illuminate\Http\Request;
-use Resources\views;
 use Illuminate\Support\Facades\DB;
 
 class BaseController extends Controller
@@ -17,36 +15,7 @@ class BaseController extends Controller
      */
     public function index()
     {
-        return view('welcome');
-    }
-
-    public function showDate(){
-        $date=[];
-        $data = DB::table('series')->orderBy('premiere','desc')->get();
-        for($i=0;$i<5;$i++){
-            $date[$i]=$data[$i];
-        }
-        return view('accueil.echantillon',['date' =>$date]);
-
-    }
-    public function filtre(Request $request) {
-        $cat = $request->get("cat", '');
-        $series = Serie::all();
-        if (empty($cat)) {
-            $series = $this->series;
-        } else {
-            foreach ($this->series as $serie) {
-                    array_multisort($series, SORT_ASC, $cat);
-                    $taches[] = $serie;
-
-            }
-        }
-        return view('welcome', ['serie' => $taches]);
-    }
-
-    public function valide($request,$idUser,$idEpisode){
-        DB:: table('seen')->insert(
-            ['user_id'=> $idUser, 'episode_id' => $idEpisode]);
+        //
     }
 
     /**
@@ -56,7 +25,7 @@ class BaseController extends Controller
      */
     public function create()
     {
-        return view('taches.create');
+        //
     }
 
     /**
@@ -65,35 +34,9 @@ class BaseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request){
-    // validation des données de la requête
-        $this->validate(
-            $request,
-            [
-                'name' => 'required',
-                'email' => 'required',
-                'password' => 'required',
-
-            ]
-        );
-
-        // code exécuté uniquement si les données sont validaées
-        // sinon un message d'erreur est renvoyé vers l'utilisateur
-
-        // préparation de l'enregistrement à stocker dans la base de données
-        $user = new User();
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password= $request->password;
-
-
-
-        // insertion de l'enregistrement dans la base de données
-        $user->save();
-
-        // redirection vers la page qui affiche la liste des tâches
-        return redirect('/base');
+    public function store(Request $request)
+    {
+        //
     }
 
     /**
@@ -141,4 +84,14 @@ class BaseController extends Controller
         //
     }
 
+
+    public function welcome(){
+        $series = Serie::all();
+        return view('welcome', ['series' => $series]);
+    }
+
+    public function sommaire($id){
+        $serie = Serie::find($id);
+        return view('sommaireSerie', ['serie' => $serie]);
+    }
 }
