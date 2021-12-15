@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BaseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BaseController::class, 'welcome'])->name('welcome');
+Route::get('/sommaire/{id}', [BaseController::class, 'sommaire'])-> name('som');
 
-//Route::post("/login", );
+
+//Route::post("/login",);
+
+
