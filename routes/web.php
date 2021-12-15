@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BaseController;
+use App\Http\Controllers\CommentaireController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +21,8 @@ Route::get('/', [BaseController::class, 'welcome'])->name('welcome');
 Route::get('/sommaire/{id}', [BaseController::class, 'sommaire'])-> name('som');
 Route::get('/echantillon',[App\Http\Controllers\BaseController::class, 'showDate'])->name('accueil.echantillon');
 Route::get('/filtre',  [App\Http\Controllers\BaseController::class, 'filtre']);
-Route::get('/commentaire',  [App\Http\Controllers\BaseController::class, 'ajoutCommentaire']);
-Route::post('/commentaire',  [App\Http\Controllers\BaseController::class, 'store']);
+Route::resource('commentaire', 'App\Http\Controllers\CommentaireController');
+
 /*
 Route::resource('base', 'App\Http\Controllers\BaseController')->only([
     'index', 'show'

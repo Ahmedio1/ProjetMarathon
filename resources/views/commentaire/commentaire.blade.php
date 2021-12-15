@@ -4,7 +4,7 @@
     C'est la page générale du site,
     <br />
     on doit y voir les dernières séries par exemple.
-    <form action={{'/serie'}} method="post">
+    <form action={{route('commentaire.store')}} method="POST">
         <div class="form-group">
             <textarea class="form-control  @error('message') is-invalid @enderror" name="message" id="message" placeholder="Votre message">{{ old('message') }}</textarea>
             @error('message')
