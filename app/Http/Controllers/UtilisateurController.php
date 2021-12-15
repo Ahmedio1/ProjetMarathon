@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
-class CommentaireController extends Controller
+class UtilisateurController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,12 @@ class CommentaireController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::id();
+        $user=User::find($id);
+        if ($user->administrateur== 1 ){
+            $comment = Comment::where('validated', '!=', 0 )->orderBy('serie_id')->get();
+            return view ('user',['comment'=>$comment]);}
+
     }
 
     /**
@@ -25,7 +31,7 @@ class CommentaireController extends Controller
      */
     public function create()
     {
-        return view('commentaire.commentaire');
+    //
     }
 
     /**
@@ -36,19 +42,7 @@ class CommentaireController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'message' => 'required',
-            'note'=>'required'
-        ]);
-        $comments = new Comment();
-        $comments->content = $request->message;
-        $comments->note = $request->note;
-        $comments->validated =0;
-        $comments->user_id =Auth::id();
-        $comments->serie_id = 216;
-       Comment::insert(['content' => $comments->content, 'note' => $comments->note,'validated' => 0,'user_id'=>$comments->user_id,'serie_id'=>$comments->serie_id]);
-
-        return view("welcome");
+        //
     }
 
     /**
