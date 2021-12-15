@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Serie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class BaseController extends Controller
@@ -31,10 +33,16 @@ class BaseController extends Controller
         if (empty($cat)) {
             $series = DB::table('series')->get();
         } else {
-            $series = DB::table('series')->groupBy($cat)->get();
+            $series = DB::table('series')->orderBy($cat)->get();
 
         }
         return view('welcome', ['series' => $series]);
+    }
+
+    public function ajoutCommentaire(){
+        return view('commentaire.commentaire');
+
+
     }
 
     /**
@@ -55,7 +63,14 @@ class BaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'content' => 'required',
+            'note' => 'required',
+
+        ]);
+        $comments = new Comment();
+        $comments->content = $request->message;
+        $comments->save();
     }
 
     /**
