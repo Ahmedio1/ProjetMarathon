@@ -27,12 +27,12 @@
             </div>
             <div id="auth">
                 @if (Auth::user())
-                    <li> <a href="/user">Voir le profil</a> </li>
+                    <li class="profil"> <a href="/user">profil</a> </li>
                 @endif
                 <li><a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                        Logout
+                        Déconnexion
                     </a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}

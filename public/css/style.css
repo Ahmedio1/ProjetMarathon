@@ -22,16 +22,15 @@ body{
 }
 
 #auth {
-    background-color: blue;
     font-weight: bold;
     font-style: italic;
-    list-style: none;
-    margin-left: 85%;
-    margin-top : 0%;
-    position: absolute;
+    list-style: none;   
 }
 #auth li{
-        display: inline;
+    display: inline;
+}
+#auth li.Profil{
+    background-color: black;
 }
 
 #listeSeries li{
@@ -41,4 +40,27 @@ body{
 
 #logo {
     text-align: center;
+}
+
+
+.Profil {
+    color: aliceblue;
+    margin-left: 43%;
+    margin-right: 35%;
+    margin-top:15% ;
+    position: absolute;
+    z-index: 999;
+    
+}
+#main-user{
+    position: absolute;
+    z-index: 999;
+    margin-left: 40%;
+    list-style: none;
+    margin-top: 0;
+}   
+#main-user li#profil-picture img{
+    width: 290px;
+    height: 280px;
+    border-radius: 155px;;
 }
