@@ -21,8 +21,10 @@ class UtilisateurController extends Controller
         if ($user->administrateur== 1 ){
             $comment = Comment::where('validated', '!=', 0 )->orderBy('serie_id')->get();
             return view ('user',['comment'=>$comment]);}
-
-    }
+    else{
+        return view('/profil', ['user'=>$user]);
+}
+}
 
     /**
      * Show the form for creating a new resource.

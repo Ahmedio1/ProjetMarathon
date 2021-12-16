@@ -129,4 +129,26 @@ class BaseController extends Controller
         $serie = Serie::find($id);
         return view('sommaireSerie', ['serie' => $serie]);
     }
+    public function complete($id){
+        $serie = Serie::find($id);
+        $nbEpisodes = DB::table('episodes')->where('serie_id', $id)->count();
+        $nbSaisons = DB::table('episodes')->where('serie_id', $id)->max('saison');
+        return view('completeSerie', ['serie' => $serie, 'nbEpisodes'=>$nbEpisodes, 'nbSaisons' => $nbSaisons]);
+    }
+    public function liste($id){
+        $episodes = DB::table('episodes')->where('serie_id', $id)->get();
+        return view('listeEpisodes', ['episodes'=>$episodes]);
+    }
+
+    public function dejaVu($eId,$date,$uId){
+        DB::table('seen')->insert(['user_id' => $uId, 'episode_id' => $eId, 'date_seen' => $date]);
+    }
+
+    public function profil($id){
+        $profil = DB::table('users')->where('id', $id)->first();
+        $series = DB::table('seen')->where('episode_id');
+        if($profil->a)
+        return view('/profil', ['profil'=>$profil]);
+    }
+
 }
