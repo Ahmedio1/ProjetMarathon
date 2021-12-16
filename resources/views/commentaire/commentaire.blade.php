@@ -6,7 +6,7 @@
     on doit y voir les dernières séries par exemple.
     la série {{$serie->nom}}
 
-    <form action="store/{{$serie->id}}" method="POST">
+    <form action="store/{{$serie->id}}" method="post">
         @csrf
         <div class="form-group">
             <textarea class="form-control  @error('message') is-invalid @enderror" name="message" id="message" placeholder="Votre message">{{ old('message') }}</textarea>

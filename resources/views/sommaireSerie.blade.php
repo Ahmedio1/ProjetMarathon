@@ -8,7 +8,7 @@
             <li> <img src="{{asset($serie->urlImage)}}"> </li>
             <li>Langue : {{$serie->langue}}</li>
             <li>Genre : {{$serie->genre}}</li>
-            <li><a href = "/complete/{{$serie->id}}">Voir le descriptif détaillé</a></li>
+            <li><a href = "/edit/{{$serie->id}}">Voir le descriptif détaillé</a></li>
         </ul>
     @else
         <h3>Aucune information sur la série à afficher</h3>

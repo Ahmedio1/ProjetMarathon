@@ -7,6 +7,8 @@ use App\Models\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class BaseController extends Controller
 {
@@ -130,16 +132,15 @@ class BaseController extends Controller
         return view('sommaireSerie', ['serie' => $serie]);
     }
     public function complete($id){
-        $serie = Serie::find($id);
-        $nbEpisodes = DB::table('episodes')->where('serie_id', $id)->count();
-        $nbSaisons = DB::table('episodes')->where('serie_id', $id)->max('saison');
-        return view('completeSerie', ['serie' => $serie, 'nbEpisodes'=>$nbEpisodes, 'nbSaisons' => $nbSaisons]);
+        //
     }
     public function liste($id){
         $episodes = DB::table('episodes')->where('serie_id', $id)->get();
         return view('listeEpisodes', ['episodes'=>$episodes]);
     }
-
+    public function valide($id){
+//
+    }
     public function dejaVu($eId,$date,$uId){
         DB::table('seen')->insert(['user_id' => $uId, 'episode_id' => $eId, 'date_seen' => $date]);
     }

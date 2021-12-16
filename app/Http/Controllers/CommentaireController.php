@@ -6,6 +6,8 @@ use App\Models\Comment;
 use App\Models\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class CommentaireController extends Controller
 {
@@ -74,7 +76,13 @@ class CommentaireController extends Controller
      */
     public function edit($id)
     {
-
+        $serie = Serie::find($id);
+        $nbEpisodes = DB::table('episodes')->where('serie_id', $id)->count();
+        $comments = Comment::where('serie_id',$serie->id)->get();
+        $idUser=Auth::id();
+        $auth= User::find($idUser);
+        $nbSaisons = DB::table('episodes')->where('serie_id', $id)->max('saison');
+        return view('completeSerie', ['serie' => $serie, 'nbEpisodes'=>$nbEpisodes, 'nbSaisons' => $nbSaisons,'comments'=>$comments,'auth'=>$auth]);
     }
 
     /**
@@ -84,9 +92,10 @@ class CommentaireController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($idS,$id)
     {
-
+        Comment::where('id',$id)->update(['validated'=>1]);
+        return redirect('/edit/'.$idS);
     }
 
     /**
