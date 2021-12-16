@@ -36,7 +36,12 @@ body{
 #listeSeries li{
     display: inline-block;
     width: 13%;
+    transition: all .2s ease-in-out;
 }
+#listeSeries li:hover{
+    transform: scale(1.2) ;
+}
+
 
 #logo {
     text-align: center;
@@ -49,12 +54,10 @@ body{
     margin-right: 35%;
     margin-top:12% ;
     position: absolute;
-    z-index: 999;
     
 }
 #main-user{
     position: absolute;
-    z-index: 999;
     margin-left: 40%;
     list-style: none;
     margin-top: -5%;
@@ -63,4 +66,22 @@ body{
     width: 260px;
     height: 280px;
     border-radius: 155px;;
+}
+
+#best {
+    font-weight: bold;
+    font-style: italic;
+    list-style: none;
+    margin:0 auto;
+    margin-left: 15%;
+    margin-right: -15%;
+}
+#best li{
+    display: inline-block;
+    width: 13%;
+    transition: all .2s ease-in-out;
+}
+#best li:hover{
+    transform: scale(1.2) ;
+
 }

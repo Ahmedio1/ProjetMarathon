@@ -5,7 +5,7 @@
     <br />
     on doit y voir les dernières séries par exemple.
     @if(!empty($date))
-        <ul>
+        <ul id="best">
             @foreach ($date as $serie)
                 <li>Nom de la série : {{$serie->nom}} <br><a href="sommaire/{{$serie->id}}"><img src="{{$serie->urlImage}}"/></a></li>
             @endforeach
