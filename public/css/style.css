@@ -1,7 +1,19 @@
+html{
+    font-size: 1.5rem;
+}
+a{
+    color: black;
+}
+a:hover{
+    font-size: 1.52rem;
+}
 body{
     background: url("../img/bg.jpg")lightblue fixed;
 }
-
+label{
+    font-size: 1,5rem;
+    font-family: Arial;
+}
 .connexion{
     font-weight: bold;
     font-style: italic;
@@ -13,8 +25,8 @@ body{
 }
 
 .box-connection {
-    position: absolute;
-    margin-left: 43%;
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -62,10 +74,7 @@ nav li{
 }
 
 nav{
-    width: 100%;
-    margin-left: 74%;
-    position: absolute;
-    top: 0;
+   display: flex;
 }
 
 nav a:hover{
@@ -91,6 +100,7 @@ nav a{
 
 .button {
     background-color: transparent;
+    margin: 1%;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
@@ -120,3 +130,18 @@ nav a{
     border-radius: 155px;
 }
 
+.form-control{
+    border-radius: 30px;
+    border-style: none;
+    align-items: center;
+    width: 30%;
+    height: 40px;
+    text-align: center;
+}
+.row-mb-3{
+    padding: 2%;
+}
+
+input{
+    font-size: 1rem;
+}

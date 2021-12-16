@@ -11,11 +11,13 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
-                            <div class="row mb-3">
-                                <label for="email" class="col-md-4 col-form-label text-md-right"><img src="/img/contact.png"/></label>
+                            <div class="row-mb-3">
+
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <label for="email" class="label_o" class="col-md-4 col-form-label text-md-right"></label>
+
+                                        <input id="email" type="email" placeholder="Nom d'utilisateur" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -25,11 +27,15 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <label for="password" class="col-md-4 col-form-label text-md-right"><img src="/img/password.png"/></label>
+                            <div class="row-mb-3">
+
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <div>
+                                    <label for="password" class="label_o" class="col-md-4 col-form-label text-md-right"></label>
+                                    </div>
+
+                                    <input id="password" placeholder="Mot De Passe" type="password"  class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -47,6 +53,7 @@
                                         <label class="form-check-label" for="remember">
                                             {{ __('Se souvenir de moi') }}
                                         </label>
+                                        <div> <a href=""> Créer un compte </a> </div>
                                     </div>
                                 </div>
                             </div>
