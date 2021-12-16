@@ -24,10 +24,6 @@
                 <li><a href="{{ route('login') }}"><img src="img/login.png" class="authSize"/></a></li>
                 <li><a href="{{ route('register') }}"><img src="img/register.png" class="authSize"/></a></li>
                 @else
-                    <div id="bonjour">
-                        <p>Bonjour {{ Auth::user()->name }}</p>
-                    </div>
-
                     {{--<div id="auth">--}}
                     @if (Auth::user())
                         <li> <a href="/user" class="authSize">Voir le profil</a> </li>

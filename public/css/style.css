@@ -108,13 +108,15 @@ nav a{
 }
 #main-user{
     position: absolute;
-    z-index: 999;
+    /*z-index: 999;*/
     margin-left: 40%;
     list-style: none;
     margin-top: 0;
 }
+
 #main-user li#profil-picture img{
     width: 290px;
     height: 280px;
     border-radius: 155px;
 }
+
