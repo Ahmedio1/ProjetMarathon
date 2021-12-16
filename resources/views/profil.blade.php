@@ -4,10 +4,10 @@
 
     @if(!empty($user))
         <p>Profil de {{$user->name}} !</p>
-        <ul>
-            <li> <img src="{{asset($user->avatar)}}"></p> </li>
-            <li>Nom : {{$user->name}}</li>
-            <li>Mail : {{$user->email}}</li>
+        <ul id="main-user">
+            <li id="profil-picture"> <img src="{{asset($user->avatar)}}"></p> </li>
+            <li><b>{{$user->name}}</b></li>
+            <li>{{$user->email}}</li>
             {{--
             @if(!empty($series))
                 <p>Vous avez vu : </p>

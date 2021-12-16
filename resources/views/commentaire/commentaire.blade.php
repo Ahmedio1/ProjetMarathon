@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    C'est la page générale du site,
-    <br />
-    on doit y voir les dernières séries par exemple.
-    la série {{$serie->nom}}
+
+    Poster un commentaire sur la série <b>{{$serie->nom}}</b>
 
     <form action="store/{{$serie->id}}" method="POST">
         @csrf

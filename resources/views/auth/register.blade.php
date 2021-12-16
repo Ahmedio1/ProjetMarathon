@@ -5,10 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div id="logo">
-                        <img src="/img/logo.png"/>
-                    </div>
                     <div class="box-connection">
+                        <img src="/img/logo.png"/>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
@@ -64,7 +62,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="button">
                                         <img src="/img/register.png"/>
                                     </button>
                                 </div>

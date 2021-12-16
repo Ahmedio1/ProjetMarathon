@@ -1,5 +1,5 @@
 body{
-    background: url("../img/bg.jpg")lightblue repeat-y;
+    background: url("../img/bg.jpg")lightblue fixed;
 }
 
 .connexion{
@@ -15,6 +15,7 @@ body{
 .box-connection {
     position: absolute;
     margin-left: 43%;
+    text-align: center;
 }
 
 #bonjour {
@@ -31,14 +32,89 @@ body{
     position: absolute;
 }
 #auth li{
-        display: inline;
+    display: inline;
 }
 
 #listeSeries li{
     display: inline-block;
-    width: 13%;
+    width: 14%;
 }
 
-#logo {
+nav ul{
+    list-style-type: none;
+    align-items: center;
+}
+
+nav li{
+    float: left;
+}
+
+nav ul::after{
+    content:"";
+    display: table;
+    clear: both;
+}
+
+nav li{
+    float: left;
+    width: 10%;
     text-align: center;
+}
+
+nav{
+    width: 100%;
+    margin-left: 74%;
+    position: absolute;
+    top: 0;
+}
+
+nav a:hover{
+    border-bottom: 2px solid black;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+}
+
+.authSize{
+    height: 2em;
+    color:white;
+}
+
+#liCat li{
+    display: inline
+}
+
+.button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+#profil {
+    color: aliceblue;
+    margin-left: 43%;
+    margin-right: 35%;
+    margin-top:15% ;
+    position: absolute;
+    z-index: 999;
+}
+#main-user{
+    position: absolute;
+    z-index: 999;
+    margin-left: 40%;
+    list-style: none;
+    margin-top: 0;
+}
+#main-user li#profil-picture img{
+    width: 290px;
+    height: 280px;
+    border-radius: 155px;
 }
