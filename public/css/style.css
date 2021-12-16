@@ -1,1 +1,44 @@
-/* Put your style here */
+body{
+    background: url("../img/bg.jpg")lightblue repeat-y;
+}
+
+.connexion{
+    font-weight: bold;
+    font-style: italic;
+    list-style: none;
+}
+
+.connexion li{
+    display: inline;
+}
+
+.box-connection {
+    position: absolute;
+    margin-left: 43%;
+}
+
+#bonjour {
+    text-align: center;
+}
+
+#auth {
+    background-color: blue;
+    font-weight: bold;
+    font-style: italic;
+    list-style: none;
+    margin-left: 85%;
+    margin-top : 0%;
+    position: absolute;
+}
+#auth li{
+        display: inline;
+}
+
+#listeSeries li{
+    display: inline-block;
+    width: 13%;
+}
+
+#logo {
+    text-align: center;
+}

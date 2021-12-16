@@ -8,33 +8,36 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('../css/style.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <header>
-    <a href="{{ url('/') }}">
-        Ma super appli
-    </a>
+    <a href="{{ url('/') }}"><img src="/img/aryost.png"/></a>
 </header>
 <!-- Authentication Links -->
 <nav>
     <ul>
         @guest
-            <li><a href="{{ route('login') }}">Login</a></li>
-            <li><a href="{{ route('register') }}">Register</a></li>
+            <li class="connexion"><a href="{{ route('login') }}">Login</a></li>
+            <li class="connexion"><a href="{{ route('register') }}">Register</a></li>
         @else
-            <li> Bonjour {{ Auth::user()->name }}</li>
-            @if (Auth::user())
-                <li><a href="#">Des liens spécifiques pour utilisateurs connectés..</a></li>
-            @endif
-            <li><a href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a></li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
+            <div id="bonjour">
+                <p>Bonjour {{ Auth::user()->name }}</p>
+            </div>
+            <div id="auth">
+                @if (Auth::user())
+                    <li> <a href="/user">Voir le profil</a> </li>
+                @endif
+                <li><a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                        Logout
+                    </a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </div>
         @endguest
     </ul>
     <li><bouton onclick="window.location.href = ('/filtre?cat=nom') ;">nom</bouton></li>
