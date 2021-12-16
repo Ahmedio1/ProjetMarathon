@@ -37,6 +37,22 @@
             </form>
         @endguest
     </ul>
+    <li><bouton onclick="window.location.href = ('/filtre?cat=nom') ;">nom</bouton></li>
+    <li><bouton onclick="window.location.href =  ('/filtre?cat=genre') ";> genre </bouton></li>
+    <li><bouton onclick="window.location.href =  ('/filtre?cat=premiere') ;"> date de sortie</bouton></li>
+    <li><bouton onclick="window.location.href = ('/filtre?cat=note');"> note </bouton></li>
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Genre
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <bouton onclick="window.location.href=('/trierGenre?cat=Comedy')">Action</bouton>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </li>
 </nav>
 <div id="main">
     @yield('content')

@@ -36,8 +36,15 @@ class BaseController extends Controller
         return new RedirectResponse('/');
     }
 
-    public function ajoutCommentaire(){
-        return view('commentaire.commentaire');
+    public function trierGenre(Request $request){
+        $cat = $request->get("cat", '');
+        if (empty($cat)) {
+            $series = Serie::all();
+        } else {
+            $series = Serie::where("genre", "=" ,$cat,"or langue","=",$cat)->get();
+        }
+        return view('welcome', ['series' => $series]);
+        return new RedirectResponse('/');
     }
 
     /**
