@@ -5,7 +5,7 @@
     @if(!empty($serie))
         <p>Voici les informations sur la série <b>{{$serie->nom}}</b></p>
         <ul>
-            <li> <img src="{{$serie->urlImage}}"/> </li>
+            <li> <img src="{{asset($serie->urlImage)}}"> </li>
             <li>Langue : {{$serie->langue}}</li>
             <li>Genre : {{$serie->genre}}</li>
             <li><a href = "/complete/{{$serie->id}}">Voir le descriptif détaillé</a></li>

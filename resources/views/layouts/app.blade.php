@@ -13,9 +13,7 @@
 </head>
 <body>
 <header>
-    <a href="{{ url('/') }}">
-        Ma super appli
-    </a>
+    <a href="{{ url('/') }}"><img src="/img/aryost.png"/></a>
 </header>
 <!-- Authentication Links -->
 <nav>
@@ -24,18 +22,22 @@
             <li class="connexion"><a href="{{ route('login') }}">Login</a></li>
             <li class="connexion"><a href="{{ route('register') }}">Register</a></li>
         @else
-            <li> Bonjour {{ Auth::user()->name }}</li>
-            @if (Auth::user())
-                <li><a href="#">Des liens spécifiques pour utilisateurs connectés..</a></li>
-            @endif
-            <li><a href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a></li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
+            <div id="bonjour">
+                <p>Bonjour {{ Auth::user()->name }}</p>
+            </div>
+            <div id="auth">
+                @if (Auth::user())
+                    <li> <a href="/profil/{{Auth::user()->id}}">Voir le profil</a> </li>
+                @endif
+                <li><a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                        Logout
+                    </a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </div>
         @endguest
     </ul>
 </nav>

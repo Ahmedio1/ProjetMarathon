@@ -110,6 +110,12 @@ class BaseController extends Controller
     }
 
     public function dejaVu($eId,$date,$uId){
-        DB::table('seen')->insert(['user_id'=>$uId, 'episode_id'=>$eId, 'date_seen'=>$date]);
+        DB::table('seen')->insert(['user_id' => $uId, 'episode_id' => $eId, 'date_seen' => $date]);
+    }
+
+    public function profil($id){
+        $profil = DB::table('users')->where('id', $id)->first();
+        $series = DB::table('seen')->where('episode_id');
+        return view('/profil', ['profil'=>$profil]);
     }
 }

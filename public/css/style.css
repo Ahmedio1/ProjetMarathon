@@ -1,15 +1,44 @@
 body{
-    background: url("../img/bg.jpg")lightblue;
+    background: url("../img/bg.jpg")lightblue repeat-y;
 }
 
 .connexion{
     font-weight: bold;
     font-style: italic;
     list-style: none;
-    display : inline-block;
+}
+
+.connexion li{
+    display: inline;
 }
 
 .box-connection {
-    background-color: #2d3748;
-    margin: 0 auto;
+    position: absolute;
+    margin-left: 43%;
+}
+
+#bonjour {
+    text-align: center;
+}
+
+#auth {
+    background-color: blue;
+    font-weight: bold;
+    font-style: italic;
+    list-style: none;
+    margin-left: 85%;
+    margin-top : 0%;
+    position: absolute;
+}
+#auth li{
+        display: inline;
+}
+
+#listeSeries li{
+    display: inline-block;
+    width: 13%;
+}
+
+#logo {
+    text-align: center;
 }
