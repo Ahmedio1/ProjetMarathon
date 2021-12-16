@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    C'est la page générale du site,
-    <br />
-    on doit y voir les dernières séries par exemple.
     @if(!empty($date))
-        <ul id="best">
-            @foreach ($date as $serie)
-                <li> <br><a href="sommaire/{{$serie->id}}"><img src="{{$serie->urlImage}}"/></a></li>
-            @endforeach
+        <p>Liste des 5 séries les plus récentes</p>
+        <ul>
+            <div id="listeSeries">
+                @foreach ($date as $serie)
+                    <li><b>{{$serie->nom}}</b> <br><a href="sommaire/{{$serie->id}}"><img src="{{$serie->urlImage}}"/></a></li>
+                @endforeach
+            </div>
         </ul>
     @else
-        <h3>aucune tâche</h3>
+        <h3>Pas de séries pour le moment !</h3>
     @endif
 @endsection

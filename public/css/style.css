@@ -1,7 +1,19 @@
-body{
-    background: url("../img/bg.jpg")lightblue repeat-y;
+html{
+    font-size: 1.5rem;
 }
-
+a{
+    color: black;
+}
+a:hover{
+    font-size: 1.52rem;
+}
+body{
+    background: url("../img/bg.jpg")lightblue fixed;
+}
+label{
+    font-size: 1,5rem;
+    font-family: Arial;
+}
 .connexion{
     font-weight: bold;
     font-style: italic;
@@ -13,8 +25,9 @@ body{
 }
 
 .box-connection {
-    position: absolute;
-    margin-left: 43%;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 #bonjour {
@@ -22,66 +35,113 @@ body{
 }
 
 #auth {
+    background-color: blue;
     font-weight: bold;
     font-style: italic;
-    list-style: none;   
+    list-style: none;
+    margin-left: 85%;
+    margin-top : 0%;
+    position: absolute;
 }
 #auth li{
     display: inline;
 }
-#auth li.Profil{
-    background-color: black;
-}
 
 #listeSeries li{
     display: inline-block;
-    width: 13%;
-    transition: all .2s ease-in-out;
-}
-#listeSeries li:hover{
-    transform: scale(1.2) ;
+    width: 14%;
 }
 
+nav ul{
+    list-style-type: none;
+    align-items: center;
+}
 
-#logo {
+nav li{
+    float: left;
+}
+
+nav ul::after{
+    content:"";
+    display: table;
+    clear: both;
+}
+
+nav li{
+    float: left;
+    width: 10%;
     text-align: center;
 }
 
+nav{
+   display: flex;
+}
 
-.Profil {
+nav a:hover{
+    border-bottom: 2px solid black;
+}
+
+nav a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+}
+
+.authSize{
+    height: 2em;
+    color:white;
+}
+
+#liCat li{
+    display: inline
+}
+
+.button {
+    background-color: transparent;
+    margin: 1%;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+#profil {
     color: aliceblue;
     margin-left: 43%;
     margin-right: 35%;
-    margin-top:12% ;
+    margin-top:15% ;
     position: absolute;
-    
+    z-index: 999;
 }
 #main-user{
     position: absolute;
+    /*z-index: 999;*/
     margin-left: 40%;
     list-style: none;
-    margin-top: -5%;
-}   
+    margin-top: 0;
+}
+
 #main-user li#profil-picture img{
-    width: 260px;
+    width: 290px;
     height: 280px;
-    border-radius: 155px;;
+    border-radius: 155px;
 }
 
-#best {
-    font-weight: bold;
-    font-style: italic;
-    list-style: none;
-    margin:0 auto;
-    margin-left: 15%;
-    margin-right: -15%;
+.form-control{
+    border-radius: 30px;
+    border-style: none;
+    align-items: center;
+    width: 30%;
+    height: 40px;
+    text-align: center;
 }
-#best li{
-    display: inline-block;
-    width: 13%;
-    transition: all .2s ease-in-out;
+.row-mb-3{
+    padding: 2%;
 }
-#best li:hover{
-    transform: scale(1.2) ;
 
+input{
+    font-size: 1rem;
 }

@@ -18,41 +18,31 @@
 <!-- Authentication Links -->
 <nav>
     <ul>
-        @guest
-            <li class="connexion"><a href="{{ route('login') }}">Login</a></li>
-            <li class="connexion"><a href="{{ route('register') }}">Register</a></li>
-        @else
-            <div id="auth">
-                @if (Auth::user())
-                    <li class="profil"> <a href="/user">profil</a> </li>
-                @endif
-                <li><a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                        Déconnexion
-                    </a></li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            </div>
-        @endguest
-    </ul>
-    <li><bouton onclick="window.location.href = ('/filtre?cat=nom') ;">nom</bouton></li>
-    <li><bouton onclick="window.location.href =  ('/filtre?cat=genre') ";> genre </bouton></li>
-    <li><bouton onclick="window.location.href =  ('/filtre?cat=premiere') ;"> date de sortie</bouton></li>
-    <li><bouton onclick="window.location.href = ('/filtre?cat=note');"> note </bouton></li>
+        <div id="connexion">
+            @guest
 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Genre
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <bouton onclick="window.location.href=('/trierGenre?cat=Comedy')">Action</bouton>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+                <li><a href="{{ route('login') }}"><img src="img/login.png" class="authSize"/></a></li>
+                <li><a href="{{ route('register') }}"><img src="img/register.png" class="authSize"/></a></li>
+                @else
+                    {{--<div id="auth">--}}
+                    @if (Auth::user())
+                        <li> <a href="/user" class="authSize">Voir le profil</a> </li>
+                    @endif
+                    <li><a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        <img src="img/register.png" class="authSize"/>
+                        </a>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                    {{--</div>--}}
+            @endguest
         </div>
-    </li>
+
+
+    </ul>
 </nav>
 <div id="main">
     @yield('content')

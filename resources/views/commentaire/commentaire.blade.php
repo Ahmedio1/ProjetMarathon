@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    C'est la page générale du site,
-    <br />
-    on doit y voir les dernières séries par exemple.
-    la série {{$serie->nom}}
-@if (!is_null($user))
-    <form action="store/{{$serie->id}}" method="post">
+
+    Poster un commentaire sur la série <b>{{$serie->nom}}</b>
+
+    <form action="store/{{$serie->id}}" method="POST">
         @csrf
         <div class="form-group">
             <textarea class="form-control  @error('message') is-invalid @enderror" name="message" id="message" placeholder="Votre message">{{ old('message') }}</textarea>
@@ -22,8 +20,4 @@
         </div>
         <button type="submit" class="btn btn-secondary">Envoyer !</button>
     </form>
-@else
-    <p> Veuillez vous connecter</p>
-@endif
-
 @endsection
