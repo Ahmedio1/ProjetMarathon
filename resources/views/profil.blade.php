@@ -8,18 +8,13 @@
             <li> <img src="{{asset($user->avatar)}}"></p> </li>
             <li>Nom : {{$user->name}}</li>
             <li>Mail : {{$user->email}}</li>
-            {{--
-            @if(!empty($series))
-                <p>Vous avez vu : </p>
-                @foreach($series as $serie)
-                <ul>
-                    <li> {{$serie->nom}} </li>
-                </ul>
+            <h2>Liste des séries vues</h2>
+                @foreach($seen as $serie)
+                    @if($serie->user=Auth::user()->id)
+                    <a href="/sommaire/{{$serie->id}}">{{$serie->nom}}</a>
+                    <p></p>
+                    @endif
                 @endforeach
-            @else
-                <p>Aucune série n'a été vue pour l'instant!</p>
-            @endif
-            --}}
         </ul>
     @else
         <h3>Cet utilisateur n'existe pas !</h3>
