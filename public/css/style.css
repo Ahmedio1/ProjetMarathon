@@ -33,11 +33,14 @@ body{
     background-color: black;
 }
 
+
 #listeSeries li{
     display: inline-block;
     width: 13%;
     transition: all .2s ease-in-out;
 }
+
+
 #listeSeries li:hover{
     transform: scale(1.2) ;
 }
@@ -52,7 +55,7 @@ body{
     color: aliceblue;
     margin-left: 43%;
     margin-right: 35%;
-    margin-top:12% ;
+    margin-top:16% ;
     position: absolute;
     
 }
@@ -60,7 +63,7 @@ body{
     position: absolute;
     margin-left: 40%;
     list-style: none;
-    margin-top: -5%;
+    margin-top: -3%;
 }   
 #main-user li#profil-picture img{
     width: 260px;
@@ -74,7 +77,7 @@ body{
     list-style: none;
     margin:0 auto;
     margin-left: 15%;
-    margin-right: -15;
+    margin-right: -15%;
 }
 #best li{
     display: inline-block;
@@ -84,3 +87,17 @@ body{
 #best li:hover{
     transform: scale(1.2);
 }
+.form-control{
+    border-radius: 30px;
+    border-style: none;
+    align-items: center;
+    width: 30%;
+    height: 40px;
+    text-align: center;
+}
+.row-mb-3{
+    padding: 2%;
+}
+
+input{
+    font-size: 1rem;}

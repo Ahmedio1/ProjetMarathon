@@ -7,6 +7,7 @@ use App\Models\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Episode;
 
 class UtilisateurController extends Controller
 {
@@ -19,14 +20,15 @@ class UtilisateurController extends Controller
     {
         $id = Auth::id();
         $user=User::find($id);
-        $seen=DB::table('seen')->join('episode','seen.episode_id','=','epsiode.id')->select('seen.*','episode.*')->where('user_id',$id)->get();
+        //$serie = DB::table('seen')->join('episode','seen.episode_id','=','episode.id')->select('seen.id_episode','episode.*')->where('user_id',$id)->get();
         if ($user->administrateur== 1 ){
             $comment = Comment::where('validated', '=', 0 )->orderBy('serie_id')->get();
             return view ('user',['comment'=>$comment,'user'=>$user]);}
-    else{
-        return view('/profil', ['user'=>$user,'seen'=>$seen]);
-}
-}
+        else{
+            return view('/profil', ['user'=>$user]);
+        }
+    }
+
 
 
 
@@ -95,4 +97,6 @@ class UtilisateurController extends Controller
     {
         //
     }
+
+
 }

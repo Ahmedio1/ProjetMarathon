@@ -24,20 +24,20 @@
                 <li><a href="{{ route('login') }}"><img src="img/login.png" class="authSize"/></a></li>
                 <li><a href="{{ route('register') }}"><img src="img/register.png" class="authSize"/></a></li>
                 @else
-                    {{--<div id="auth">--}}
+                <div id="auth">
                     @if (Auth::user())
-                        <li> <a href="/user" class="authSize">Voir le profil</a> </li>
+                        <li class="profil"> <a href="/user">profil</a> </li>
                     @endif
                     <li><a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        <img src="img/register.png" class="authSize"/>
-                        </a>
-                    </li>
+                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                            Déconnexion
+                        </a></li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
-                    {{--</div>--}}
+                </div>
+
             @endguest
         </div>
 

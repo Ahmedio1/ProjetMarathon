@@ -6,7 +6,7 @@
         <ul>
             <div id="listeSeries">
                 @foreach ($date as $serie)
-                    <li><b>{{$serie->nom}}</b> <br><a href="sommaire/{{$serie->id}}"><img src="{{$serie->urlImage}}"/></a></li>
+                    <li><br><a href="sommaire/{{$serie->id}}"><img src="{{$serie->urlImage}}"/></a></li>
                 @endforeach
             </div>
         </ul>
