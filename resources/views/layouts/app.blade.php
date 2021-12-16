@@ -22,9 +22,6 @@
             <li class="connexion"><a href="{{ route('login') }}">Login</a></li>
             <li class="connexion"><a href="{{ route('register') }}">Register</a></li>
         @else
-            <div id="bonjour">
-                <p>Bonjour {{ Auth::user()->name }}</p>
-            </div>
             <div id="auth">
                 @if (Auth::user())
                     <li class="profil"> <a href="/user">profil</a> </li>
