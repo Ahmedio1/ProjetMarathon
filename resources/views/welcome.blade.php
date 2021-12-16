@@ -11,7 +11,7 @@
             <br><br>
             <div id="listeSeries">
                 @foreach ($series as $serie)
-                    <li>Nom de la série : {{$serie->nom}} <br><a href="/sommaire/{{$serie->id}}"><img src="{{$serie->urlImage}}"/></a></li>
+                    <li> <br><a href="/sommaire/{{$serie->id}}"><img src="{{$serie->urlImage}}"/></a></li>
                 @endforeach
             </div>
         </ul>
