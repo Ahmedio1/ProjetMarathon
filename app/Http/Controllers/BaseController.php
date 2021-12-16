@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Episode;
 use App\Models\Serie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -135,14 +136,22 @@ class BaseController extends Controller
         //
     }
     public function liste($id){
+        $idUser = Auth::id();
+        $user = User::find($idUser);
         $episodes = DB::table('episodes')->where('serie_id', $id)->get();
-        return view('listeEpisodes', ['episodes'=>$episodes]);
+        return view('listeEpisodes', ['episodes'=>$episodes,'user'=>$user]);
     }
     public function valide($id){
 //
     }
     public function dejaVu($eId,$date,$uId){
+        $seen = DB::table('seen')->where('episode_id',$eId)->exists();
+        $episode = Episode::find($eId);
+        if($seen){
+            return redirect("/listeEpisodes/".$episode->serie_id);}
+        else{
         DB::table('seen')->insert(['user_id' => $uId, 'episode_id' => $eId, 'date_seen' => $date]);
+        return redirect("/listeEpisodes/".$episode->serie_id);}
     }
 
     public function profil($id){
@@ -150,6 +159,7 @@ class BaseController extends Controller
         $series = DB::table('seen')->where('episode_id');
         if($profil->a)
         return view('/profil', ['profil'=>$profil]);
+
     }
 
 }

@@ -23,9 +23,9 @@ Route::get('/echantillon',[App\Http\Controllers\BaseController::class, 'showDate
 Route::get('/filtre',  [App\Http\Controllers\BaseController::class, 'filtre']);
 Route::get('/trierGenre',  [App\Http\Controllers\BaseController::class, 'trierGenre']);
 Route::resource('commentaire', 'App\Http\Controllers\CommentaireController');
-Route::get('create/{id}', [App\Http\Controllers\CommentaireController::class,'create']);
+Route::get('create/{id}', [App\Http\Controllers\CommentaireController::class,'create'])->name('create.com');
 Route::post('create/store/{id}', [App\Http\Controllers\CommentaireController::class,'store']);
-Route::get('edit/{id}', [App\Http\Controllers\CommentaireController::class,'edit']);
+Route::get('edit/{id}', [App\Http\Controllers\CommentaireController::class,'edit'])->name('edit.com');
 Route::post('edit/update/{idS}/{id}', [App\Http\Controllers\CommentaireController::class,'update']);
 
 //Route::get('/complete/{id}', [BaseController::class, 'complete']);

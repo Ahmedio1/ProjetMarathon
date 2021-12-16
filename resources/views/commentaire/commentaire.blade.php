@@ -5,7 +5,7 @@
     <br />
     on doit y voir les dernières séries par exemple.
     la série {{$serie->nom}}
-
+@if (!is_null($user))
     <form action="store/{{$serie->id}}" method="post">
         @csrf
         <div class="form-group">
@@ -22,4 +22,8 @@
         </div>
         <button type="submit" class="btn btn-secondary">Envoyer !</button>
     </form>
+@else
+    <p> Veuillez vous connecter</p>
+@endif
+
 @endsection

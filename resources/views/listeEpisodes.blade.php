@@ -8,11 +8,12 @@
                 <div id="listeEpisodes">
                     @foreach($episodes as $episode)
                             <li> Episode {{$episode->numero}} : {{$episode->nom}} <br>
+                                @if(!is_null($user))
                                 <form action="/listeEpisodes/{{$episode->id}}/{{\Carbon\Carbon::now()}}/1" method="post">
                                     @csrf
-                                    {{--dejaVu/{{$episode->serie_id}}/{{$episode->numero}}/{{\Carbon\Carbon::now()}}/{{\Illuminate\Support\Facades\Auth::id()}}--}}
                                     <button name="nomBoutton">Déjà vu !</button>
                                 </form>
+                                @endif
                             </li>
                     @endforeach
                 </div>

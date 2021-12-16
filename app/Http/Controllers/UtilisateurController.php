@@ -19,8 +19,8 @@ class UtilisateurController extends Controller
         $id = Auth::id();
         $user=User::find($id);
         if ($user->administrateur== 1 ){
-            $comment = Comment::where('validated', '!=', 0 )->orderBy('serie_id')->get();
-            return view ('user',['comment'=>$comment]);}
+            $comment = Comment::where('validated', '=', 0 )->orderBy('serie_id')->get();
+            return view ('user',['comment'=>$comment,'user'=>$user]);}
     else{
         return view('/profil', ['user'=>$user]);
 }

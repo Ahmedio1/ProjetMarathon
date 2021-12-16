@@ -28,8 +28,10 @@ class CommentaireController extends Controller
      */
     public function create($id)
     {
+        $idUser = Auth::id();
+        $user = User::find($idUser);
         $serie=Serie::find($id);
-       return view('commentaire.commentaire', ['serie'=>$serie]);
+       return view('commentaire.commentaire', ['serie'=>$serie,'user'=>$user]);
 
     }
 
