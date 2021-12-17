@@ -1,7 +1,23 @@
+html{
+    font-size: 1.5rem;
+}
+body{
+    width: 80%;
+    margin: 0 auto;
+}
+a{
+    color: black;
+}
+a:hover{
+    font-size: 1.52rem;
+}
 body{
     background: url("../img/bg.jpg")lightblue fixed;
 }
-
+label{
+    font-size: 1.5rem;
+    font-family: Arial;
+}
 .connexion{
     font-weight: bold;
     font-style: italic;
@@ -13,8 +29,8 @@ body{
 }
 
 .box-connection {
-    position: absolute;
-    margin-left: 43%;
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -27,17 +43,34 @@ body{
     font-weight: bold;
     font-style: italic;
     list-style: none;
-    margin-left: 85%;
+    margin-left: 65%;
     margin-top : 0%;
     position: absolute;
 }
 #auth li{
     display: inline;
 }
+#nom_serie{
+    background-color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    max-width: 250px;
+}
+#listeSeries{
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+#une_serie{
+    text-align: center;
+    max-width: 100%;
+
+}
 #listeSeries li{
     display: inline-block;
-    width: 20%;
+    margin:60px;
 }
+
 nav ul{
     list-style-type: none;
     align-items: center;
@@ -60,10 +93,7 @@ nav li{
 }
 
 nav{
-    width: 100%;
-    margin-left: 74%;
-    position: absolute;
-    top: 0;
+    display: flex;
 }
 
 nav a:hover{
@@ -82,21 +112,14 @@ nav a{
     height: 2em;
     color:white;
 }
-.imageaffiche{
-border-radius: 25px;
-box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.4);
--moz-box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.4);
--webkit-box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.4);
-}
 
 #liCat li{
     display: inline
-    
 }
-
 
 .button {
     background-color: transparent;
+    margin: 1%;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
@@ -104,12 +127,6 @@ box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.4);
     outline: none;
 }
 
-.sommairediv{
-padding-left: 850px;
-}    
-.centretexte li{
-padding-left: 850px;
-}
 #profil {
     color: aliceblue;
     margin-left: 43%;
@@ -130,4 +147,29 @@ padding-left: 850px;
     width: 290px;
     height: 280px;
     border-radius: 155px;
+}
+
+.form-control{
+    border-radius: 30px;
+    border-style: none;
+    align-items: center;
+    width: 30%;
+    height: 40px;
+    text-align: center;
+}
+.row-mb-3{
+    padding: 2%;
+}
+
+input{
+    font-size: 1rem;
+}
+
+.imageaffiche{
+
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+#nom_serie{
+    text-align: center;
 }

@@ -1,7 +1,6 @@
+@extends('layouts.app')
+
 @section('content')
-    C'est la page générale du site,
-    <br />
-    on doit y voir les dernières séries par exemple.
     la série {{$serie->nom}}
     @if (!is_null($user))
         <form action="store/{{$serie->id}}" method="post">

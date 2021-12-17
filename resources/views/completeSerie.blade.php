@@ -41,7 +41,7 @@
                 @endforeach
             @endif
             <li> <a href="/listeEpisodes/{{$serie->id}}">Voir la liste des épisodes de la série</a> </li>
-            <li> <a href="/create/{{$serie->id}}">Ajouter un commentaire</a> </li>
+            <li> <a href="{{route('create.com',[$serie->id])}}">Ajouter un commentaire</a> </li>
         </ul>
     @else
         <h3>Aucune information sur la série à afficher</h3>

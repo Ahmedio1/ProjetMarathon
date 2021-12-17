@@ -13,15 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class BaseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+
     public function showDate(){
         $data = Serie::orderBy('premiere','desc')->take(5)->get();
         return view('accueil.echantillon',['date' =>$data]);
@@ -48,16 +40,6 @@ class BaseController extends Controller
         }
         return view('welcome', ['series' => $series]);
         return new RedirectResponse('/');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
