@@ -77,50 +77,6 @@ class BaseController extends Controller
         $comments->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
 
     public function welcome(){
@@ -132,18 +88,14 @@ class BaseController extends Controller
         $serie = Serie::find($id);
         return view('sommaireSerie', ['serie' => $serie]);
     }
-    public function complete($id){
-        //
-    }
+
     public function liste($id){
         $idUser = Auth::id();
         $user = User::find($idUser);
         $episodes = DB::table('episodes')->where('serie_id', $id)->get();
         return view('listeEpisodes', ['episodes'=>$episodes,'user'=>$user]);
     }
-    public function valide($id){
-//
-    }
+
     public function dejaVu($eId,$date,$uId){
         $seen = DB::table('seen')->where('episode_id',$eId)->exists();
         $episode = Episode::find($eId);
@@ -154,13 +106,6 @@ class BaseController extends Controller
             return redirect("/listeEpisodes/".$episode->serie_id);}
     }
 
-    public function profil($id){
-        $profil = DB::table('users')->where('id', $id)->first();
-        $series = DB::table('seen')->where('episode_id');
-        if($profil->a)
-            return view('/profil', ['profil'=>$profil]);
-
-    }
 
 
 }

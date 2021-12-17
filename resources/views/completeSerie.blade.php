@@ -22,7 +22,6 @@
                 @csrf
                 <button type="submit" name = "submit" value="valide" >Valide</button>
             </form>
-
                         @else
                             <li>Avis : {{$comment->content}}</li>
                         @endif
